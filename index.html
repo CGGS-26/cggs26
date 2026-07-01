@@ -189,15 +189,25 @@
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Model Architecture</h2>
+        <h2 class="title is-3">Algorithm Design and Model Architecture</h2>
       </div>
           <p>
-            With text prompts as input, CGGS firstly produces ego-centric multi-view images, then lift the 2D priors into geometric-consistent 3d representation.
+            While panoramic generation naturally ensures global continuity with a unified $360^{\circ}$ field of view, the requisite equirectangular projection introduces severe geometric distortions—particularly near the poles—which fundamentally violate the pinhole camera assumption inherent in 3DGS and SfM pipelines.
+
+            Conversely, multi-view generation synthesizes perspective images that are geometrically distortion-free and rich in local high-frequency details, offering a mathematically robust foundation for high-fidelity reconstruction. 
+            However, this paradigm inherently struggles with inter-view consistency due to the lack of a unified canvas.
+            
+            To tackle the aforementioned issues, we introduce CGGS, which unleashes the potential of latent diffusion models in text-image and image-image alignment, and learns the ego-centric 3D representation from the 2D images through a hierarchical 3D Gaussian optimization.
           </p>
           <img src="./static/images/overview.png" style="margin-top: 20px;"/>
 
           <p>
-            Specificly, it primarily comprises the Consistency-Augmented MV-LDM as Ego-centric Generator, the Flow-Depth Estimator as Layout Decorator, and the 3D Gaussian Optimization combined with MID Loss and the hierarchical optimization strategy, serving as Geometric Refiner.
+            To enhance the semantic alignment and cross-view consistency, we introduce a consistency-augmented loss term as regularization to the LDM loss during the training of the CAA module.
+
+            Building upon the synthesized views, a Flow-Depth Estimator is used to generate a dense point cloud as layout initialization. 
+            This approach can reconstruct a robust 3D structural layout of the scene from ego-centric 2D priors, whereas conventional Structure-from-Motion methods (SfM) typically struggle with such tasks.
+
+            Based on the initial 3D layout, we further leverage the Mutual Information Depth Loss (MID) to refine the scene during 3D Gaussian optimization, combined with a hierarchical optimization strategy, aiming at maintaining rendering robustness.
           </p>
           <img src="./static/images/pipeline.png" style="margin-top: 20px;"/>
       </div>
