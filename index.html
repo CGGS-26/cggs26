@@ -193,28 +193,16 @@
       </div>
           <p>
             While panoramic generation naturally ensures global continuity with a unified $360^{\circ}$ field of view, the requisite equirectangular projection introduces severe geometric distortions—particularly near the poles—which fundamentally violate the pinhole camera assumption inherent in 3DGS and SfM pipelines.
-          </p>
-
-          <p>
             Conversely, multi-view generation synthesizes perspective images that are geometrically distortion-free and rich in local high-frequency details, offering a mathematically robust foundation for high-fidelity reconstruction. 
             However, this paradigm inherently struggles with inter-view consistency due to the lack of a unified canvas.
-          </p>
-            
-          <p>
             To tackle the aforementioned issues, we introduce CGGS, which unleashes the potential of latent diffusion models in text-image and image-image alignment, and learns the ego-centric 3D representation from the 2D images through a hierarchical 3D Gaussian optimization.
           </p>
           <img src="./static/images/overview.png" style="margin-top: 20px;"/>
 
           <p>
             To enhance the semantic alignment and cross-view consistency, we introduce a consistency-augmented loss term as regularization to the LDM loss during the training of the CAA module.
-          </p>
-
-          <p>
             Building upon the synthesized views, a Flow-Depth Estimator is used to generate a dense point cloud as layout initialization. 
             This approach can reconstruct a robust 3D structural layout of the scene from ego-centric 2D priors, whereas conventional Structure-from-Motion methods (SfM) typically struggle with such tasks.
-          </p>
-
-          <p>
             Based on the initial 3D layout, we further leverage the Mutual Information Depth Loss (MID) to refine the scene during 3D Gaussian optimization, combined with a hierarchical optimization strategy, aiming at maintaining rendering robustness.
           </p>
           <img src="./static/images/pipeline.png" style="margin-top: 20px;"/>
@@ -268,7 +256,6 @@
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
-
       <div class="column">
         <div class="content">
           <h2 class="title is-4">Ablation Study on Consistency-Augmented Loss</h2>
@@ -287,22 +274,20 @@
               proposed <i>L</i><sub>aug</sub> enhances the training of the diffusion process,
               thus improving the semantic alignment and perceptual quality.
             </p>
-            <img src="./static/images/ablation_L_augmented_tab.png"/>
+            <img src="./static/images/abalation_L_augmented_tab.png"/>
           </div>
-
         </div>
       </div>
-    
       <div class="column">
-        <h2 class="title is-4">Ablation Study on Layout Decorator with other SfM methods</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              Our configuration provides more robust 3D layouts for subsequent 3D Gaussian optimization.
-            </p>
-            <img src="./static/images/ablation_Layout_Decorator_tab.png"/>
-          </div>
-
+        <div class="content">
+          <h2 class="title is-4">Ablation Study on Layout Decorator with other SfM methods</h2>
+              <p>
+                We compare Layout Decorator with conventional SfM methods, COLMAP, by directly substituting the block in CGGS while keeping other modules same. 
+                To ensure a fair comparison, we evaluate COLMAP both with and without the identical camera trajectories used in our method.
+                Quantitative results demonstrate that our methods provide more reliable 3D structure for subsequent 3D Gaussian optimization.
+                Under relatively sparse-view settings with little overlap across views, conventional SfM methods tend to diverge during optimization or result in suboptimal spatial structure.
+              </p>
+              <img src="./static/images/ablation_Layout_Decorator_tab.png"/>
         </div>
       </div>
     </div>
@@ -311,36 +296,32 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <div class="columns is-centered has-text-centered">
           <h2 class="title is-3">Ablation Study on Geometric Refiner</h2>
       </div>
-
-      <div class="column">
-        <div class="content">
-          <p>
-            Ablation studies of Geometric-Refiner on MID loss and hierarchical optimization. 
-            Here we demonstrate the qualitative comparison between the ground truth with different settings, including MID+HO, MID, PD+HO, PD, and w/o (MID+HO). 
-            The comparison covers both indoor and outdoor scenes. 
-            Our design of Geometric-Refiner provides the most accurate texture recovery, with fewer blurred blocks than other settings.
-          </p>
-          <img src="./static/images/ablation_L_augmented.png"/>
-
-        </div>
-      </div>
-    
-      <div class="column">
-        <div class="columns is-centered">
-          <div class="column content">
-            <p> 
-            We further explore the effectiveness of our proposed MID loss and hierarchical optimization, and compare our depth loss with the conventional Pearson Depth loss. 
-            The results below support our design choices.
+      <div class="columns is-variable is-5">
+        <div class="column">
+          <div class="content">
+            <p>
+              Ablation studies of Geometric-Refiner on MID loss and hierarchical optimization. 
+              Here we demonstrate the qualitative comparison between the ground truth with different settings, including MID+HO, MID, PD+HO, PD, and w/o (MID+HO). 
+              The comparison covers both indoor and outdoor scenes. 
+              Our design of Geometric-Refiner provides the most accurate texture recovery, with fewer blurred blocks than other settings.
             </p>
-            <img src="./static/images/ablation_Geometric_Refiner_tab.png"/>
+            <img src="./static/images/ablation_Geometric_Refiner.png"/>
           </div>
-
+        </div>
+        <div class="column">
+            <div class="content">
+              <p> 
+              We further explore the effectiveness of our proposed MID loss and hierarchical optimization, and compare our depth loss with the conventional Pearson Depth loss. 
+              The results below support our design choices.
+              </p>
+              <img src="./static/images/ablation_Geometric_Refiner_tab.png"/>
+            </div>
+          </div>
         </div>
       </div>
     </div>
