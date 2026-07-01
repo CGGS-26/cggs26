@@ -211,16 +211,18 @@
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Improved Doppelganger Classifier</h2>
+        <h2 class="title is-3">Generation Results</h2>
       </div>
           <p>
-            Model design. (Left) Given an image pair, we first create a symmetrized version of the pair and feed it into the frozen MASt3R
-            model. Multi-layer features are extracted from each decoder branch, concatenated, and fed into two learnable doppelganger classification
-            heads. Each head generates predictions supervised by cross-entropy loss. 
-            (Right) We use multi-layer decoder features and a Transformer-based classifier head for doppelganger prediction.
+            Generation results. 
+            (a) Generation results of CGGS for ego-centric multi-view priors, gaussian point clouds, novel view synthesis, and depth maps. 
+            Our method generates harmonious, domain-free 3D scenes from ego-centric views, highly aligned with complex textual descriptions. 
+            (b) Additional generation results from CGGS. Our work can generate richly detailed, high-fidelity scenes with considerable diversity while ensuring cohesive semantic content and a harmonized visual style that faithfully reflects even the most intricate textual descriptions.
+            The diverse examples demonstrated include many out-of-domain scenarios not seen during training, such as urban scenes with pedestrians and vehicles, as well as scenes dominated by humans, animals, and other biological entities.
+            This illustrates that CGGS exhibits notable generalization ability,
 
           </p>
-          <img src="./static/images/model.jpg" style="margin-top: 20px;"/>
+          <img src="./static/images/generation_results.png" style="margin-top: 20px;"/>
       </div>
     </div>
   </div>
