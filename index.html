@@ -267,7 +267,6 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-
     <div class="columns is-centered">
 
       <div class="column">
@@ -312,35 +311,42 @@
 
 <section class="section">
   <div class="container is-max-desktop">
+
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <div class="columns is-centered has-text-centered">
-          <h2 class="title is-4">Ablation Study on Geometric Refiner</h2>
-        </div>
-        <div class="has-text-centered" style="margin-top: 20px;">
-          <img src="./static/images/ablation_Geometric_Refiner.png" 
-               style="width: 100%; max-width: 100%; height: auto;" />
-          <figcaption> 
+          <h2 class="title is-3">Ablation Study on Geometric Refiner</h2>
+      </div>
+
+      <div class="column">
+        <div class="content">
+          <p>
             Ablation studies of Geometric-Refiner on MID loss and hierarchical optimization. 
             Here we demonstrate the qualitative comparison between the ground truth with different settings, including MID+HO, MID, PD+HO, PD, and w/o (MID+HO). 
             The comparison covers both indoor and outdoor scenes. 
             Our design of Geometric-Refiner provides the most accurate texture recovery, with fewer blurred blocks than other settings.
-          </figcaption>
-        </div>
+          </p>
+          <img src="./static/images/ablation_L_augmented.png"/>
 
-        <p> 
-          We further explore the effectiveness of our proposed MID loss and hierarchical optimization, and compare our depth loss with the conventional Pearson Depth loss. 
-          The results below support our design choices.
-        </p>
-        <div class="has-text-centered" style="margin-top: 20px;">
-          <img src="./static/images/ablation_Geometric_Refiner_tab.png" 
-               style="width: 100%; max-width: 100%; height: auto;" />
         </div>
+      </div>
+    
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <p> 
+            We further explore the effectiveness of our proposed MID loss and hierarchical optimization, and compare our depth loss with the conventional Pearson Depth loss. 
+            The results below support our design choices.
+            </p>
+            <img src="./static/images/ablation_Geometric_Refiner_tab.png"/>
+          </div>
 
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <section class="section">
   <div class="container is-max-desktop">
