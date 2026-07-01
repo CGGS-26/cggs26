@@ -61,10 +61,10 @@
               <span class="author-block">
                 <a href="https://github.com/Xiaohan-Z/">Xiaohan Zhang</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="https://drliuqi.github.io/">Qi Liu</a><sup>1</sup>,
+                <a href="https://drliuqi.github.io/">Qi Liu</a><sup>1†</sup>,
               </span>
               <span class="author-block">
-                <a href="https://huanwang.tech/">Huan Wang</a><sup>2</sup>,
+                <a href="https://huanwang.tech/">Huan Wang</a><sup>2†</sup>
               </span>
             </div>
   
@@ -72,6 +72,9 @@
               <span class="author-block"><sup>1</sup>South China University of Technology,</span>
               <span class="author-block"><sup>2</sup>Westlake University</span>
             </div>
+
+            <br/>
+            <span style="font-size: smaller;">†Corresponding author.</span>
   
             <div class="column has-text-centered">
               <div class="publication-links">
@@ -97,22 +100,12 @@
   
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href="https://github.com/doppelgangers25/doppelgangers-plusplus"
+                  <a href="https://github.com/CGGS332/CGGS"
                      class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                         <i class="fab fa-github"></i>
                     </span>
                     <span>Code</span>
-                    </a>
-                </span>
-  
-                <span class="link-block">
-                  <a href="https://doppelgangers25.github.io/doppelganger-viewer/"
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                        <i class="far fa-images"></i>
-                    </span>
-                    <span>Web Viewer</span>
                     </a>
                 </span>
   
@@ -133,12 +126,14 @@
         class="interpolation-image"
         alt="Interpolate start reference image."/>
       <h2 class="subtitle has-text-centered">
-        Visual aliasing, or doppelgangers, poses severe challenges to 3D reconstruction.
-        We propose Doppelganger++, an enhanced pairwise image classifier that excels in visual disambiguation across diverse and challenging scenes. 
-        (Top) We seamlessly integrate Doppelganger++ into SfM, successfully disambiguating each scene. 
-        (Middle) Compared to prior work (which we refer to as DG-OG), Doppelgangers++ is more robust for everyday scenes,
-        showing improved accuracy and robustness. We show pairs that DG-OG classifies incorrectly and ours gets correct. 
-        (Bottom) Our new VisymScenes dataset, featuring complex daily scenes, is particularly challenging for COLMAP and DG-OG, but our method can achieve correct and complete reconstructions.
+        Challenges remain in ego-centric 3D scene generation due to limited view overlap and the dominant influence of individual perspectives on scene interpretation. These factors
+        hinder the creation of viewpoint-consistent and semantically aligned visual content, as well as the construction of accurate geometric structures. In this paper, we propose CGGS, 
+        a text-to-3D framework aiming to enhance 3D-content-awareness and address geometric distortions in ego-centric scene generation. Firstly, the Ego-centric Generator is proposed by 
+        fine-tuning a Multi-View Latent Diffusion Model with consistency-augmented loss to generate consistent, high-fidelity 2D content aligned with textual descriptions. Then, Layout 
+        Decorator leverages optical flow and point-track correspondence to estimate depth, therefore producing dense point clouds as coarse layouts from the ego-centric 2D priors. Building 
+        on this initialization, Geometric Refiner is proposed to enhance 3D Gaussian reconstruction via an entropy-based Mutual Information Depth Loss (MID) combined with a hierarchical 
+        optimization scheme for improving visual quality and geometric structure. Comprehensive experiments demonstrate that CGGS outperforms previous methods in generating coherent and accurate 
+        text-driven 3D scenes.
       </h2>
     </div>
 
@@ -155,15 +150,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Accurate 3D reconstruction is frequently hindered by visual aliasing, where visually similar but distinct surfaces (aka, doppelgangers), 
-            are incorrectly matched. These spurious matches distort the structure-from-motion (SfM) process, leading to misplaced model elements and reduced accuracy. 
-            Prior efforts addressed this with CNN classifiers trained on curated datasets, but these approaches struggle to generalize across diverse real-world scenes and can require extensive parameter tuning. 
-            In this work, we present Doppelgangers++, a method to enhance doppelganger detection and improve 3D reconstruction accuracy. 
-            Our contributions include a diversified training dataset that incorporates geo-tagged images from everyday scenes to expand robustness beyond landmark-based datasets. 
-            We further propose a Transformer-based classifier that leverages 3D-aware features from the MASt3R model, achieving superior precision and recall across both in-domain and out-of-domain tests. 
-            Doppelgangers++ integrates seamlessly into standard SfM and MASt3R-SfM pipelines, offering efficiency and adaptability across varied scenes. 
-            To evaluate SfM accuracy, we introduce an automated, geotag-based method for validating reconstructed models, eliminating the need for manual inspection. 
-            Through extensive experiments, we demonstrate that Doppelgangers++ significantly enhances pairwise visual disambiguation and improves 3D reconstruction quality in complex and diverse scenarios.
+            Challenges remain in ego-centric 3D scene generation due to limited view overlap and the dominant influence of individual perspectives on scene interpretation. 
+            These factors hinder the creation of viewpoint-consistent and semantically aligned visual content, as well as the construction of accurate geometric structures. 
+            In this paper, we propose CGGS, a text-to-3D framework aiming to enhance 3D-content-awareness and address geometric distortions in ego-centric scene generation. 
+            Firstly, the Ego-centric Generator is proposed by fine-tuning a Multi-View Latent Diffusion Model with consistency-augmented loss to generate consistent, high-fidelity 2D content aligned with textual descriptions. 
+            Then, Layout Decorator leverages optical flow and point-track correspondence to estimate depth, therefore producing dense point clouds as coarse layouts from the ego-centric 2D priors. 
+            Building on this initialization, Geometric Refiner is proposed to enhance 3D Gaussian reconstruction via an entropy-based Mutual Information Depth Loss (MID) combined with a hierarchical optimization scheme for improving visual quality and geometric structure. 
+            Comprehensive experiments demonstrate that CGGS outperforms previous methods in generating coherent and accurate text-driven 3D scenes.
           </p>
         </div>
       </div>
