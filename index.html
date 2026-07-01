@@ -126,10 +126,10 @@
         class="interpolation-image"
         alt="Interpolate start reference image."/>
       <h2 class="subtitle has-text-centered">
-        Challenges remain in ego-centric 3D scene generation due to limited view overlap and the dominant influence of individual perspectives on scene interpretation. 
-        These factors hinder the creation of viewpoint-consistent and semantically aligned visual content, as well as the construction of accurate geometric structures.
-        Our CGGS produces multi-view images with rich detail and superior semantic coherence, showcasing domain-agnosticity. 
-        Our results outperform other works with an accurately detailed description and unified 3D consistency.
+        (a) Generation results of CGGS for ego-centric multi-view priors, gaussian point clouds, novel view synthesis, and depth maps. 
+        Our method generates harmonious, domain-free 3D scenes from ego-centric views, highly aligned with complex textual descriptions. 
+        (b) Additional generation results from CGGS. Our work can generate richly detailed, high-fidelity scenes with considerable diversity while ensuring cohesive semantic content and a harmonized visual style that faithfully reflects even the most intricate textual descriptions.
+        CGGS exhibits notable generalization ability,
       </h2>
     </div>
 
@@ -211,24 +211,21 @@
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Generation Results</h2>
+        <h2 class="title is-3">Qualitative Comparison</h2>
       </div>
           <p>
-            Generation results. 
-            (a) Generation results of CGGS for ego-centric multi-view priors, gaussian point clouds, novel view synthesis, and depth maps. 
-            Our method generates harmonious, domain-free 3D scenes from ego-centric views, highly aligned with complex textual descriptions. 
-            (b) Additional generation results from CGGS. Our work can generate richly detailed, high-fidelity scenes with considerable diversity while ensuring cohesive semantic content and a harmonized visual style that faithfully reflects even the most intricate textual descriptions.
-            The diverse examples demonstrated include many out-of-domain scenarios not seen during training, such as urban scenes with pedestrians and vehicles, as well as scenes dominated by humans, animals, and other biological entities.
-            This illustrates that CGGS exhibits notable generalization ability,
-
+            Qualitative comparison between CGGS with other baselines. 
+            Our CGGS produces multi-view images with rich detail and superior semantic coherence, showcasing domain-agnosticity. 
+            Our results outperform other works with an accurately detailed description and unified 3D consistency. 
+            Specifically, DreamScene360 generates visual results with less major content in the horizon field; 
+            while Director3D is capable of depicting the content described in text prompts, it is constrained by a limited field of view;
+            LucidDreamr causes undesirable style transfer, wrong stitches between concepts, and inconsistent content, as highlighted in the red box.
           </p>
-          <img src="./static/images/generation_results.png" style="margin-top: 20px;"/>
+          <img src="./static/images/qualtative_comparison.png" style="margin-top: 20px;"/>
       </div>
     </div>
   </div>
 </section>
-
-
 
 
 <section class="section" style="margin-bottom: 10px; padding-bottom: 0px;">
@@ -236,21 +233,15 @@
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Assessing Doppelganger Correction in SfM</h2>
+        <h2 class="title is-3">Quantitative Comparisons</h2>
       </div>
           <p>
-            There is currently no reliable benchmarking method for evaluating the accuracy and correctness of SfM reconstructions specifically in terms of how well they address the doppelganger issue.
-            We propose to leverage mapping sites like Mapillary, which provide images with location metadata that can serve as probes for validating a 3D model.
-            We first collect sequences of geo-tagged Mapillary images around the target location and register them to the SfM model. Then, we
-            use RANSAC to align the registered cameras and their geolocations.
-            The inlier ratio (IR) is computed as an indicator of model accuracy. (Bottom) In the model corrupted by doppelganger pairs, the registered
-            cameras all collapse to one side. We see that the camera poses
-            estimated with COLMAP (right, in red) do not align well with the
-            geotags (green), leading to a low inlier ratio, but our method leads
-            to a much closer alignment.
-           
+            Quantitative comparison between CGGS and other baselines. 
+            We benchmark our methods with other brilliant prior works across 24 scenes, covering indoor and outdoor environments. 
+            We report the evaluation in metrics that reflect both generation quality and reconstruction quality. 
+            The results indicate that CGGS achieves the best overall performance, generating semantically consistent 3D scenes with high visual quality and proper geometric structure.
           </p>
-          <img src="./static/images/sfm_evaluation.png" style="margin-top: 20px;"/>
+          <img src="./static/images/quantitative_comparison_tab.png" style="margin-top: 20px;"/>
       </div>
     </div>
   </div>
