@@ -265,46 +265,45 @@
   </div>
 </section>
 
-
 <section class="section">
   <div class="container is-max-desktop">
+
     <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <div class="columns is-centered has-text-centered">
-        <h2 class="title is-4">Ablation Study on Consistency-Augmented Loss</h2>
-      </div>
 
-      <img src="./static/images/ablation_L_augmented.png"/>
-      <figcaption> 
-        <strong> Ablation study on consistency-augmented loss <i>L</i><sub>aug</sub>.</strong>
-        Without <i>L</i><sub>aug</sub>, cross-view texture discrepancies become pronounced,
-        with abrupt background artifacts (e.g., exposed ceilings in bedroom scenes)
-        and physically implausible anomalies (e.g., floating, distorted trees on beaches) emerging. 
-      </figcaption>
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-4">Ablation Study on Consistency-Augmented Loss</h2>
+          <p>
+            Ablation study on consistency-augmented loss <i>L</i><sub>aug</sub>.</strong>
+            Without <i>L</i><sub>aug</sub>, cross-view texture discrepancies become pronounced,
+            with abrupt background artifacts (e.g., exposed ceilings in bedroom scenes)
+            and physically implausible anomalies (e.g., floating, distorted trees on beaches) emerging.
+          </p>
+          <img src="./static/images/ablation_L_augmented.png"/>
 
-      <img src="./static/images/ablation_L_augmented_tab.png"/>
-      <figcaption> 
-        <strong> We further report the training time of the Ego-centric Generator and the vanilla version
-        without <i>L</i><sub>aug</sub>. The quantitative results illustrate that our
-        proposed <i>L</i><sub>aug</sub> enhances the training of the diffusion process,
-        thus improving the semantic alignment and perceptual quality.
-      </figcaption>
+          <div class="column content">
+            <p>
+              We further report the training time of the Ego-centric Generator and the vanilla version
+              without <i>L</i><sub>aug</sub>. The quantitative results illustrate that our
+              proposed <i>L</i><sub>aug</sub> enhances the training of the diffusion process,
+              thus improving the semantic alignment and perceptual quality.
+            </p>
+            <img src="./static/images/ablation_L_augmented_tab.png"/>
+          </div>
 
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <div class="columns is-centered has-text-centered">
-          <h2 class="title is-4">Ablation Study on Layout Decorator with other SfM methods</h2>
         </div>
-        <p>Our configuration provides more robust 3D layouts for subsequent 3D Gaussian optimization.</p>
-        <div class="has-text-centered" style="margin-top: 20px;">
-          <img src="./static/images/ablation_Layout_Decorator_tab.png" 
-               style="width: 100%; max-width: 100%; height: auto;" />
+      </div>
+    
+      <div class="column">
+        <h2 class="title is-4">Ablation Study on Layout Decorator with other SfM methods</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              Our configuration provides more robust 3D layouts for subsequent 3D Gaussian optimization.
+            </p>
+            <img src="./static/images/ablation_Layout_Decorator_tab.png"/>
+          </div>
+
         </div>
       </div>
     </div>
@@ -322,7 +321,7 @@
           <img src="./static/images/ablation_Geometric_Refiner.png" 
                style="width: 100%; max-width: 100%; height: auto;" />
           <figcaption> 
-            <strong> Ablation studies of Geometric-Refiner on MID loss and hierarchical optimization. 
+            Ablation studies of Geometric-Refiner on MID loss and hierarchical optimization. 
             Here we demonstrate the qualitative comparison between the ground truth with different settings, including MID+HO, MID, PD+HO, PD, and w/o (MID+HO). 
             The comparison covers both indoor and outdoor scenes. 
             Our design of Geometric-Refiner provides the most accurate texture recovery, with fewer blurred blocks than other settings.
